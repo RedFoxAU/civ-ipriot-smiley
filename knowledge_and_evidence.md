@@ -93,7 +93,7 @@ Address the following tasks and questions based on the code provided in this rep
 3. Run the project locally by executing the `main.py` file
 4. Evidence this by providing screenshots of the project directory structure and the output of the `main.py` file
 
-![Local Execution (INSERT YOUR SCREENSHOT)](screenshots/CREATE_A_SCREENSHOT_OF_YOUR_local_setup.png)
+![Local Execution (screenshot1.png)](screenshots/screenshot1.png)
 
 If you are running on a Raspberry Pi, you can use the following command to run the project and then screenshot the result:
 
@@ -110,34 +110,34 @@ python3 main.py
 
    | Type                    | name       | value          |
    | ----------              | ---------- | -------------- |
-   | built-in primitive type | _          |  _             |
-   | built-in composite type | _          |  _             |
+   | built-in primitive type | dimmed     | True 	   |
+   | built-in composite type | list       | self.pixels    |
    | user-defined type       | _          |  _             |
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
    | Object                   | Type                    |
    | ------------             | ----------------------- |
-   | self.pixels              | _                       |
-   | A member of self.pixels  | _                       |
-   | self                     | _                       |
+   | self.pixels              | list                    |
+   | A member of self.pixels  | tuple                   |
+   | self                     | object                  |
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
-   | Control Flow | File       | First line  | Line range  |
-   | ------------ | ---------- | ----------- | ----------- |
-   |  sequence    |  _         | _           | _           |
-   |  selection   | _          | _           | _           |
-   |  iteration   | _          | _           | _           |
+   | Control Flow | File       | First line 		     | Line range  |
+   | ------------ | ---------- | --------------------------- | ----------- |
+   |  sequence    | smiley.py  | self.sense_hat = SenseHat() | 13-26       |
+   |  selection   | sad.py     | eyes = [10, 13, 18, 21]     | 24-30       |
+   |  iteration   | _          | def draw_mouth(self):       | 16-22       |
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
-   | Type                    | Used? | Example |
-   | ----------------------- | ----- | --------|
-   | int                     | _     | _          |
-   | float                   | _     | _          |
-   | str                     | _     | _          |
-   | bool                    | _     | _          |
+   | Type                    | Used? | Example              |
+   | ----------------------- | ----- | ---------------------|
+   | int                     | Yes   | mouth = [49, ...]    |
+   | float                   | Yes   | dimming_factor = 0.6 |
+   | str                     | No    | None         	    |
+   | bool                    | Yes   | dimmed=True          |
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
