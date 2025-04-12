@@ -1,6 +1,6 @@
 # login
 .gh.sh
-
+gh.sh
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
