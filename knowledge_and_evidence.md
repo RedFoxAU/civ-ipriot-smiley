@@ -118,13 +118,12 @@ python3 main.py
      
 - [ ] In happy.py, from Line 11 - the constructor call runs the code:
 
-      ```python
        def __init__(self):
         super().__init__()
 
         self.draw_mouth()
         self.draw_eyes()
-      ```
+
 
 ### 2.3. Code style
 
