@@ -72,7 +72,7 @@ python3 main.py
    | ----------              | ---------- | -------------- |
    | built-in primitive type | dimmed     | True 	   |
    | built-in composite type | list       | self.pixels    |
-   | user-defined type       | _          |  _             |
+   | user-defined type       | smiley     | Smiley         |
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
@@ -88,32 +88,43 @@ python3 main.py
    | ------------ | ---------- | --------------------------- | ----------- |
    |  sequence    | smiley.py  | self.sense_hat = SenseHat() | 13-26       |
    |  selection   | sad.py     | eyes = [10, 13, 18, 21]     | 24-30       |
-   |  iteration   | _          | def draw_mouth(self):       | 16-22       |
+   |  iteration   | sad.py     | def draw_mouth(self):       | 16-22       |
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
    | Type                    | Used? | Example              |
    | ----------------------- | ----- | ---------------------|
-   | int                     | Yes   | mouth = [49, ...]    |
+   | int                     | Yes   | mouth = [49, 54, 42, 43, 44]    |
    | float                   | Yes   | dimming_factor = 0.6 |
    | str                     | No    | None         	    |
    | bool                    | Yes   | dimmed=True          |
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
-> Your answer here
->
+| Variable Type      | Example               | Explanation                                                                                   |
+|--------------------|-----------------------|-----------------------------------------------------------------------------------------------|
+| Class variable     | `WHITE = (255, 255, 255)` | This is a class variable defined once in the class and it acts as a constant shared by all instances. |
+| Instance variable  | `self.pixels`         | This instance variable is created in `__init__` and holds data unique to each object instance.    |
+
 
 6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
    1. What is the purpose of a constructor (in general) and this one (in particular)?
 
-   > Your answer here
-   >
+- [ ] Generally, the constructor __init__ intialises a new object's attributes and prepares it for use
+- [ ] In happy.py it calls super().__init___() to setup the Smiley class and then runs the simulated happy mouth and eyes
+
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
+     
+- [ ] In happy.py, from Line 11 - the constructor call runs the code:
 
-   > Your answer here
-   >
+      ```python
+       def __init__(self):
+        super().__init__()
+
+        self.draw_mouth()
+        self.draw_eyes()
+      ```
 
 ### 2.3. Code style
 
