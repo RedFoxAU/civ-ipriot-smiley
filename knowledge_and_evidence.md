@@ -115,7 +115,7 @@ python3 main.py
 
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
-     
+
 - [ ] In happy.py, from Line 11 - the constructor call runs the code:
 
 ```python
@@ -153,7 +153,7 @@ python3 main.py
 > Note: Ignore the `sense_hat.py` file when answering the questions below
 
 1. List all the classes you identified in the project. Indicate which classes are base classes and which are subclasses. For subclasses, identify all direct base classes.
-  
+
   Use the following table for your answers:
 
 | Class Name | Super or Sub? | Direct parent(s) |
