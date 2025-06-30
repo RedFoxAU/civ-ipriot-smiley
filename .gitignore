@@ -1,5 +1,8 @@
 # temp files
 tempCodeRunnerFile.py
+
+#
+.venv/
 # login
 .gh.sh
 gh.sh
