@@ -4,7 +4,7 @@ from smiley import Smiley
 
 class Sad(Smiley, Blinkable):
     def __init__(self):
-        super().__init__()
+        super().__init__(complexion=self.BLUE)  # Pass BLUE as the complexion# Updated from super().__init__() for 3.4 Flexiable Colours - Step 3
 
         self.draw_mouth()
         self.draw_eyes()
