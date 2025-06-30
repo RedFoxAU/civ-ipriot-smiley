@@ -4,10 +4,14 @@ That is, delete the sense_hat.py file that is included in this bundle."""
 
 import time
 
-from happy import Happy
+# from happy import Happy  # Uncomment for Happy class and comment the Sad import/class.
+from sad import Sad  # Swap with Happy for the Happy class.
 
 def main():
-    smiley = Happy()
+
+  #  smiley = Happy()  # Uncomment for Happy class and comment the Sad import/class.
+
+    smiley = Sad()  # Swap with Happy for the Happy class.
 
     smiley.show()
 
