@@ -249,7 +249,6 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 Include a screenshot of the sad smiley or the modified `main.py`:
 
 ![Sad Smiley Blinking](screenshots/sad_blinking.png)
-![image](https://github.com/user-attachments/assets/5c8e75eb-99fa-4c4b-9e70-05f58c712a32)
 
 - Observe and document the Sad smiley as it blinks its eyes. Describe any adjustments or issues encountered during implementation.
 
