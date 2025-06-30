@@ -135,18 +135,18 @@ python3 main.py
 
 1. What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
 
-> Your answer here
->
+The python code is using style from PEP 8 which is Python's official style guide. SenseHat is using the same python format.
 
 2. List three aspects of this convention you see applied in the code.
 
-> Your answer here
->
+  1. Uses indentation consitently
+  2. Constants are written in UPPERCASE
+  3. Variables are snake_case
 
-3. Give two examples of organizational documentation in the code.
+4. Give two examples of organizational documentation in the code.
 
-> Your answer here
->
+ 1. Inline comments with "  # Give the process some time to start"
+ 2. Docstrings describing a function         """Updates the GUI using a queue for communication with the main process."""
 
 ### 2.4. Identifying and understanding classes
 
@@ -156,49 +156,53 @@ python3 main.py
 
   Use the following table for your answers:
 
-| Class Name | Super or Sub? | Direct parent(s) |
-| ---------- | ------------- | ---------------- |
-| NotReal    | Sub           | NotRealParent    |
-|   ...      |   ...         |      ...         |
+| Class Name | Super or Sub? | Direct parent(s)     |
+|------------|---------------|----------------------|
+| Smiley     | Super         | SenseHat             |
+| Sad        | Sub           | Smiley               |
+| Happy      | Sub           | Smiley, Blinkable    |
+| Blinkable  | Sub           | ABC                  |
+
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
-> Your answer here
->
+Abstraction means showing only what’s needed and hiding the complicated parts. In this project, the Smiley class hides the details of how the LED display works—so instead of setting pixels manually, you just call methods like draw_eyes() to make a face.
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-> Your answer here
->
+Inheritance - this means creating new classes (i.e. Happy and Sad) that get features from another class (Smiley). This way, Happy and Sad don’t have to rewrite common code—they - they just change what is needed to make the Happy and Sad code unique.
 
 ### 2.5. Compare and contrast classes
 
 Compare and contrast the classes Happy and Sad.
 
 1. What is the key difference between the two classes?
-   > Your answer here
-   >
-2. What are the key similarities?
-   > Your answer here
-   >
-3. What difference stands out the most to you and why?
-   > Your answer here
-   >
-4. How does this difference affect the functionality of these classes
-   > Your answer here
-   >
+   Happy = gets/inherits from Smiley and Blinkable, and blinks
+   Sad = gets/inherits from only Smiley which is wide open or shut - no blinks
+   
+3. What are the key similarities?
+   Happy + Sad both inherit from Smiley
+   
+4. What difference stands out the most to you and why?
+   Blinkable - Happy has blinkable, and I think the Blink sequence is a friendly guesture from the code to me.
+   
+5. How does this difference affect the functionality of these classes
+   The functionaility means Happy will blink, Sad will not.
+   
 
 ### 2.6. Where is the Sense(Hat) in the code?
 
 1. Which class(es) utilize the functionality of the SenseHat?
-   > Your answer here
-   >
+   The class Smiley encapsulates the SenseHat object so any subclass that has Smiley will also get the functionality.
+   
 2. Which of these classes directly interact with the SenseHat functionalities?
-   > Your answer here
-   >
-3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here
-   >
+   The class Smiley in smiley.py def __init__(self) has self.sense_hat = SenseHat(), and is defined in functions show() and
+   dim_display().
+   
+4. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
+   Encalpsulation hides the details of interacting with the SenseHat inside the Smiley class. smiley.py only provides out dim_displayed
+   and show. This means that only required code is needed to refresh, minimsing complexity of the code.
+   
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
 
@@ -208,31 +212,37 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> Your answer here
->
+I assume, without contacting the code's author that only Happy should blink, as Blinkable is only in the class Happy. If the author wanted all Smiley to blink, Blinkable would be with the Super - class Smiley.
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> Your answer here
->
+No, because the subclass can change the way it blinks. A subclass can differ the blinking behaviour.
 
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> Your answer here
->
+Polymorphism allows different classes to provide their own version of a class method that is in the parent class.
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> Your answer here
->
+Inheritance allows a subclass to have their own version of the blink method, meaning it can be customised. This allows different smiles to react differently while using the same name.
+
 1. **Implement Blink in Sad Class:**
 
    - Create a new method called `blink` within the Sad class. Ensure you use the same method signature as in the Happy class:
 
    ```python
-   def blink(self, delay=0.25):
-       pass  # Replace 'pass' with your implementation
-   ```
+   def blink(self, delay=0.25):  # Implement Blink in Sad class
+        """
+        Blinks the smiley's eyes once
+
+        :param delay: Delay between blinks (in seconds)
+        """
+        self.draw_eyes(wide_open=False)
+        self.show()
+        time.sleep(delay)
+        self.draw_eyes(wide_open=True)
+        self.show()
+    ```
 
 2. **Code Implementation:** Implement the code that allows the Sad smiley to blink. Use the implementation from the Happy Smiley as a reference. Ensure your new method functions similarly by controlling the blink duration through the `delay` argument.
 
